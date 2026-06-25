@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hike X Nepal | Explore Nepal One Trail at a Time</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --blue:#0f5fb8;
+    --blue-dark:#07366f;
+    --blue-soft:#eaf4ff;
+    --sky:#38a5ff;
+    --white:#ffffff;
+    --ink:#102033;
+    --muted:#5d7188;
+    --border:#d8e8f8;
+    --shadow:0 18px 45px rgba(15,95,184,.14);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(180deg,#f6fbff 0%,#ffffff 45%,#eef7ff 100%);
+    color:var(--ink);
+    line-height:1.7;
+}
+
+a{
+    color:inherit;
+}
+
+.top-bar{
+    background:var(--blue-dark);
+    color:white;
+    padding:9px 8%;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    font-size:14px;
+}
+
+.top-bar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(255,255,255,.94);
+    color:var(--ink);
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(7,54,111,.08);
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:var(--blue);
+    letter-spacing:.03em;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px 24px;
+}
+
+nav a{
+    color:#24445f;
+    text-decoration:none;
+    font-weight:600;
+    transition:color .2s ease;
+}
+
+nav a:hover{
+    color:var(--blue);
+}
+
+.hero{
+    min-height:88vh;
+    background:linear-gradient(90deg,rgba(7,54,111,.88),rgba(15,95,184,.55)),
+    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    color:white;
+}
+
+.hero-content{
+    width:min(760px,84%);
+    margin-left:8%;
+}
+
+.hero-content h1{
+    font-size:clamp(42px,7vw,72px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    margin:0 0 28px;
+    font-size:22px;
+    color:#e8f4ff;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--blue);
+    color:white;
+    padding:14px 28px;
+    text-decoration:none;
+    border-radius:999px;
+    font-weight:700;
+    border:2px solid var(--blue);
+    box-shadow:0 12px 26px rgba(15,95,184,.25);
+    transition:transform .2s ease, background .2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    background:#0b4f9b;
+}
+
+.btn-light{
+    background:white;
+    color:var(--blue);
+    border-color:white;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:14px;
+    font-size:clamp(30px,4vw,42px);
+    color:var(--blue-dark);
+}
+
+.section-subtitle{
+    max-width:720px;
+    margin:0 auto 40px;
+    text-align:center;
+    color:var(--muted);
+    font-size:17px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 24px 55px rgba(15,95,184,.2);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+    color:var(--blue-dark);
+}
+
+.card-content p{
+    color:var(--muted);
+}
+
+.package-meta{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin:18px 0;
+    font-weight:700;
+    color:var(--blue);
+    flex-wrap:wrap;
+}
+
+.package-meta span{
+    background:var(--blue-soft);
+    border:1px solid var(--border);
+    padding:7px 10px;
+    border-radius:999px;
+    font-size:14px;
+}
+
+.package-link{
+    display:inline-block;
+    color:var(--blue);
+    font-weight:700;
+    text-decoration:none;
+}
+
+.about,
+.payment{
+    background:white;
+}
+
+.about{
+    text-align:center;
+}
+
+.about p{
+    max-width:850px;
+    margin:auto;
+    color:var(--muted);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-top:35px;
+}
+
+.stat{
+    background:var(--blue-soft);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+}
+
+.stat strong{
+    display:block;
+    color:var(--blue);
+    font-size:30px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.payment-grid,
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+.payment-methods{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.payment-method,
+.contact-info,
+form{
+    background:#f8fbff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:var(--shadow);
+}
+
+.payment-method h3,
+.contact-info h3{
+    color:var(--blue);
+    margin-bottom:8px;
+}
+
+.payment-method p,
+.contact-info p{
+    color:var(--muted);
+}
+
+.payment-box{
+    background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+    color:white;
+    border-radius:18px;
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.payment-box p{
+    margin:12px 0;
+    color:#eaf4ff;
+}
+
+.payment-box strong{
+    color:white;
+}
+
+.payment-box .btn{
+    display:inline-block;
+    margin-top:18px;
+    background:white;
+    color:var(--blue);
+    border-color:white;
+}
+
+.contact{
+    background:linear-gradient(180deg,#eaf4ff,#ffffff);
+}
+
+.contact-list{
+    list-style:none;
+    display:grid;
+    gap:14px;
+    margin-top:18px;
+}
+
+.contact-list a{
+    color:var(--blue);
+    font-weight:700;
+    text-decoration:none;
+}
+
+form{
+    max-width:none;
+}
+
+input, textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:white;
+    color:var(--ink);
+}
+
+input:focus,
+textarea:focus{
+    outline:3px solid rgba(56,165,255,.18);
+    border-color:var(--sky);
+}
+
+button{
+    background:var(--blue);
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+footer{
+    background:var(--blue-dark);
+    color:white;
+    text-align:center;
+    padding:24px;
+}
+
+footer a{
+    color:white;
+    font-weight:700;
+    text-decoration:none;
+}
+
+@media(max-width:768px){
+    .top-bar,
+    header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero{
+        min-height:76vh;
+        text-align:center;
+    }
+
+    .hero-content{
+        margin:0 auto;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .payment-grid,
+    .payment-methods,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <span>Book your Nepal trek with local trail support</span>
+    <span>
+        WhatsApp: <a href="https://wa.me/9843931104">9843931104</a> |
+        Email: <a href="mailto:hikexnepal@gmail.com">hikexnepal@gmail.com</a>
+    </span>
+</div>
+
+<header>
+    <div class="logo">HIKE X NEPAL</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#payment">Payment</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Explore Nepal One Trail At A Time</h1>
+        <p>Adventure • Nature • Culture</p>
+        <div class="hero-actions">
+            <a href="#packages" class="btn">Explore Packages</a>
+            <a href="https://wa.me/9843931104?text=Hi%20Hike%20X%20Nepal,%20I%20want%20to%20book%20a%20trek." class="btn btn-light">WhatsApp Us</a>
+        </div>
+    </div>
+</section>
+
+<section id="destinations">
+    <h2 class="section-title">Popular Hikes</h2>
+    <p class="section-subtitle">Handpicked trails for travelers who want real Himalayan views, local culture and memorable days on foot.</p>
+
+    <div class="cards">
+
+        <div class="card">
+          <img src="assets/gallery/machhapuchhre-ascent.jpeg" alt="Trekkers ascending toward Machhapuchhre mountain" loading="lazy">
+            <div class="card-content">
+                <h3>Mardi Himal</h3>
+                <p>Breathtaking mountain views and unforgettable trails.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/langtang-trek.jpeg" alt="Group trekking toward snow-covered Langtang mountains" loading="lazy">
+            <div class="card-content">
+                <h3>Langtang Valley</h3>
+                <p>Perfect blend of culture and Himalayan scenery.</p>
+            </div>
+        </div>
+
+        <div class="card">
+           <img src="assets/gallery/poon-hill-sunrise.jpeg" alt="Trekkers watching sunrise over snow-capped Himalayan peaks" loading="lazy">
+            <div class="card-content">
+                <h3>Poon Hill</h3>
+                <p>One of Nepal's best sunrise viewpoints.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="packages">
+    <h2 class="section-title">Trek Packages</h2>
+    <p class="section-subtitle">Choose from short scenic hikes to longer high-altitude adventures. Package details can be customized for your group.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="assets/gallery/everest-base-camp.jpeg" alt="Everest Base Camp marker with prayer flags and snowy peaks" loading="lazy">
+            <div class="card-content">
+                <h3>Everest Base Camp</h3>
+                <p>Classic Himalayan journey through Sherpa villages, Namche Bazaar and Everest Base Camp.</p>
+                <div class="package-meta">
+                    <span>12-14 Days</span>
+                    <span>From $1,350</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/annapurna-ridge.jpeg" alt="Trekkers on an Annapurna ridge below snow-covered peaks" loading="lazy">
+            <div class="card-content">
+                <h3>Annapurna Circuit</h3>
+                <p>A scenic circuit with high passes, villages, valleys and unforgettable mountain landscapes.</p>
+                <div class="package-meta">
+                    <span>15 Days</span>
+                    <span>From $1,100</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/langtang-trek.jpeg" alt="Group trekking toward snow-covered Langtang mountains" loading="lazy">
+            <div class="card-content">
+                <h3>Langtang Valley Trek</h3>
+                <p>A shorter cultural trek with forests, glaciers and beautiful views near Kathmandu.</p>
+                <div class="package-meta">
+                    <span>8 Days</span>
+                    <span>From $650</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/himalayan-panorama.jpeg" alt="Wide Himalayan panorama with sun over a glacier valley" loading="lazy">
+            <div class="card-content">
+                <h3>Manaslu Circuit</h3>
+                <p>A remote adventure around Manaslu with quiet trails, local culture and dramatic passes.</p>
+                <div class="package-meta">
+                    <span>14-16 Days</span>
+                    <span>From $1,450</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/base-camp-tents.jpeg" alt="Expedition tents below a snowy Himalayan base camp" loading="lazy">
+            <div class="card-content">
+                <h3>Makalu Base Camp</h3>
+                <p>A wild and less crowded route for hikers who want a deeper Himalayan challenge.</p>
+                <div class="package-meta">
+                    <span>17-19 Days</span>
+                    <span>From $1,250</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/gallery/dhaulagiri-trail.jpeg" alt="Snowy Dhaulagiri trail with trekkers on a ridge" loading="lazy">
+            <div class="card-content">
+                <h3>Dhaulagiri Circuit</h3>
+                <p>A high alpine trek built for experienced hikers seeking big views and rugged terrain.</p>
+                <div class="package-meta">
+                    <span>16-19 Days</span>
+                    <span>From $1,500</span>
+                </div>
+                <a href="itinerary.html#packages" class="package-link">View itinerary</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about">
+    <h2 class="section-title">About Hike X Nepal</h2>
+
+    <p>
+        Hike X Nepal is a community of hikers and explorers dedicated to
+        discovering Nepal's hidden trails, mountains, forests and culture.
+        Join us on unforgettable adventures across the Himalayas.
+    </p>
+    <div class="stats">
+        <div class="stat">
+            <strong>6+</strong>
+            Trek packages
+        </div>
+        <div class="stat">
+            <strong>24/7</strong>
+            WhatsApp support
+        </div>
+        <div class="stat">
+            <strong>100%</strong>
+            Local guidance
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-subtitle">A glimpse of the valleys, viewpoints and mountain moods waiting across Nepal.</p>
+
+    <div class="gallery">
+        <img src="assets/gallery/dhaulagiri-trail.jpeg" alt="Snowy Dhaulagiri trail with trekkers on a ridge" loading="lazy">
+        <img src="assets/gallery/base-camp-tents.jpeg" alt="Orange expedition tents below a Himalayan base camp" loading="lazy">
+        <img src="assets/gallery/valley-trekkers.jpeg" alt="Trekkers walking through a high mountain valley in Nepal" loading="lazy">
+        <img src="assets/gallery/mountain-stupa.jpeg" alt="Buddhist stupa beside a rugged mountain road" loading="lazy">
+        <img src="assets/gallery/everest-base-camp.jpeg" alt="Everest Base Camp marker with prayer flags and snowy peaks" loading="lazy">
+        <img src="assets/gallery/langtang-trek.jpeg" alt="Group trekking toward snow-covered Langtang mountains" loading="lazy">
+        <img src="assets/gallery/annapurna-ridge.jpeg" alt="Trekkers on an Annapurna ridge with rhododendrons and peaks" loading="lazy">
+        <img src="assets/gallery/himalayan-panorama.jpeg" alt="Wide Himalayan panorama with sun over the valley" loading="lazy">
+        <img src="assets/gallery/machhapuchhre-ascent.jpeg" alt="Trekkers ascending toward Machhapuchhre mountain" loading="lazy">
+        <img src="assets/gallery/poon-hill-sunrise.jpeg" alt="Trekkers watching sunrise over snow-capped Himalayan peaks" loading="lazy">
+    </div>
+</section>
+
+<section class="payment" id="payment">
+    <h2 class="section-title">Payment Methods</h2>
+    <p class="section-subtitle">Reserve your trek with a simple deposit, then send your payment confirmation by WhatsApp or email.</p>
+
+    <div class="payment-grid">
+        <div class="payment-methods">
+            <div class="payment-method">
+                <h3>eSewa</h3>
+                <p>Pay quickly from Nepal using your eSewa wallet.</p>
+            </div>
+            <div class="payment-method">
+                <h3>Khalti</h3>
+                <p>Use Khalti for fast local booking deposits.</p>
+            </div>
+            <div class="payment-method">
+                <h3>Bank Transfer</h3>
+                <p>Send your advance payment directly to our bank account.</p>
+            </div>
+            <div class="payment-method">
+                <h3>Card / Cash</h3>
+                <p>International cards and cash payment are accepted on request.</p>
+            </div>
+        </div>
+
+        <div class="payment-box">
+            <h3>Booking Deposit</h3>
+            <p><strong>Advance:</strong> 20% of package price to confirm your seat.</p>
+            <p><strong>Remaining:</strong> Pay before trek departure in Kathmandu.</p>
+            <p><strong>WhatsApp:</strong> 9843931104</p>
+            <p><strong>Email:</strong> hikexnepal@gmail.com</p>
+            <a href="https://wa.me/9843931104?text=Hi%20Hike%20X%20Nepal,%20I%20want%20to%20book%20a%20trek%20package." class="btn">Book & Pay</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Tell us your preferred trek, travel date and group size. We will help you pick the right route.</p>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3>Quick Contact</h3>
+            <p>Fastest way to reach us is WhatsApp. Email is best for detailed plans and group requests.</p>
+            <ul class="contact-list">
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/9843931104">9843931104</a></li>
+                <li><strong>Email:</strong> <a href="mailto:hikexnepal@gmail.com">hikexnepal@gmail.com</a></li>
+                <li><strong>Location:</strong> Kathmandu, Nepal</li>
+            </ul>
+        </div>
+
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    © 2026 Hike X Nepal | WhatsApp: <a href="https://wa.me/9843931104">9843931104</a> | <a href="mailto:hikexnepal@gmail.com">hikexnepal@gmail.com</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hike X Nepal | Trek Itineraries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Hike X Nepal</a>
+      <nav class="nav-links" id="navLinksItinerary">
+        <a href="index.html">Home</a>
+        <a href="#packages">Packages</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggleItinerary">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero-small" id="packages">
+      <div class="container hero-small-grid">
+        <div class="hero-small-copy">
+          <span class="eyebrow">All Trek Packages</span>
+          <h1>Complete Trek Itineraries</h1>
+          <p>Select any package below to see the complete daily route, elevations, permits, season guidance, and trekking notes.</p>
+        </div>
+        <div class="hero-small-image">
+          <img src="assets/gallery/poon-hill-sunrise.jpeg" alt="Trekkers watching sunrise over the Himalayas" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container section-heading">
+        <span class="eyebrow">Choose Your Trek</span>
+        <h2>Pick a package to explore the full itinerary</h2>
+      </div>
+      <div class="container package-gallery">
+        <img src="assets/gallery/annapurna-ridge.jpeg" alt="Trekkers on a Himalayan ridge below snow-covered peaks" />
+      </div>
+      <div class="container package-selector" id="packageSelector"></div>
+    </section>
+
+    <section class="section" id="itinerary">
+      <div class="container itinerary-scroll" id="itineraryContainer"></div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container section-heading">
+        <span class="eyebrow">Ready to hike?</span>
+        <h2>Book Your Trek Today</h2>
+        <p>Contact us to reserve your spot and start your Himalayan adventure.</p>
+      </div>
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h3>Quick Contact</h3>
+          <ul>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/9843931104?text=Hi%20Hike%20X%20Nepal,%20I%20want%20to%20book%20a%20trek." target="_blank" rel="noreferrer">9843931104</a></li>
+            <li><strong>Email:</strong> <a href="mailto:hikexnepal@gmail.com">hikexnepal@gmail.com</a></li>
+            <li><strong>Location:</strong> Kathmandu, Nepal</li>
+          </ul>
+        </div>
+        <div class="contact-card">
+          <h3>Travel Notes</h3>
+          <p>Bring layered trekking clothing, hiking boots, and a light daypack. We provide route guidance, accommodation, and support from Kathmandu onward.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Hike X Nepal. Your path to the Himalayas starts here.</p>
+      <a href="index.html">Return Home</a>
+    </div>
+  </footer>
+
+  <script src="script-itinerary.js"></script>
+</body>
+</html>
